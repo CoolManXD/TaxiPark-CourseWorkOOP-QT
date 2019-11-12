@@ -1,0 +1,8 @@
+6
+1street 2street 10
+1street 4street 50
+1street 5street 30
+2street 3street 20
+3street 4street 10
+4street 5street 30
+5street 6street 40

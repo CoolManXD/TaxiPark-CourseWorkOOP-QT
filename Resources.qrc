@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/data">
+        <file>dataBase/carsDependent.txt</file>
+        <file>dataBase/carsIndependent.txt</file>
+        <file>dataBase/driversDependent.txt</file>
+        <file>dataBase/driversIndependent.txt</file>
+        <file>dataBase/listOfStreets.txt</file>
+        <file>dataBase/map.txt</file>
+    </qresource>
+</RCC>
