@@ -137,7 +137,28 @@ void TaxiPark::setDriverMap(DriverMap* map)
 
 void TaxiPark::receiveOrder(Client* client)
 {
-	m_client = client;
+    m_client = client;
+}
+
+bool TaxiPark::completeOrder(QString &way, float &time, float &price, float &salary)
+{
+    busyDriverUpdates();
+    float durationToClient = 999999;
+    TaxiService* driver = findNearestDriver(durationToClient);
+    if (driver == NULL) return false;
+    /*DriverDependent* driver2 = dynamic_cast<DriverDependent*>(driver);*/
+
+    float durationToDesination = driver->findWay(m_client->getLocation(), m_client->getDestination(), way);
+    time = durationToClient + durationToDesination;
+    driver->setTimeAttributes(time);
+
+//	std::cout << "All trip will take " <<  time << " minutes\n";
+    driver->calculatePrice(durationToDesination, price, salary);
+    m_earnMoney += price;
+    driver->setLocation(m_client->getDestination());
+    delete m_client;
+    m_client = NULL;
+    return true;
 }
 
 TaxiService* TaxiPark::findNearestDriver(float& duration)
@@ -174,7 +195,7 @@ TaxiService* TaxiPark::findNearestDriver(float& duration)
 
 	if (driver == NULL)
 	{
-		std::cout << "Sorry. No free cars :(\n";
+//		std::cout << "Sorry. No free cars :(\n";
 		delete m_client;
 		m_client = NULL;
 		return NULL;
@@ -182,23 +203,6 @@ TaxiService* TaxiPark::findNearestDriver(float& duration)
 
 	driver->changeIsBusy();
 	return driver;
-}
-
-void TaxiPark::completeOrder()
-{
-	busyDriverUpdates();
-    float durationToClient = 999999;
-	TaxiService* driver = findNearestDriver(durationToClient);
-	if (driver == NULL) return;
-	/*DriverDependent* driver2 = dynamic_cast<DriverDependent*>(driver);*/
-
-    float durationToDesination = driver->findWay(m_client->getLocation(), m_client->getDestination());
-	driver->setTimeAttributes(durationToClient + durationToDesination);
-	std::cout << "All trip will take " << durationToClient + durationToDesination << " minutes\n";
-	driver->calculatePrice(durationToDesination);
-	driver->setLocation(m_client->getDestination());
-	delete m_client;
-	m_client = NULL;
 }
 
 void TaxiPark::busyDriverUpdates()

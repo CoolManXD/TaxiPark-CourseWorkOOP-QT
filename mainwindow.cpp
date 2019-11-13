@@ -32,6 +32,7 @@ void MainWindow::refreshListOfSearch()
     }
 }
 
+//----------------------------------------------------------------
 void MainWindow::on_editSearchL_textChanged(const QString &str)
 {
     ui->listL->clear();
@@ -115,4 +116,28 @@ void MainWindow::on_listD_itemClicked()
         if (items.size() != 0)
             ui->listL->setCurrentItem(items[0]);
     }
+}
+
+//----------------------------------------------------------------
+void MainWindow::on_confirmButton_clicked()
+{
+    //потом сдлеать меседж бокс
+    const QString name = ui->editNameClient->text();
+    const QString location = ui->listL->currentItem()->text();
+    const QString destination = ui->listD->currentItem()->text();
+    m_park.receiveOrder(new Client{m_map, name, location, destination});
+    QString way = "";
+    float time;
+    float price;
+    float salary;
+    if(!m_park.completeOrder(way, time, price, salary))
+    {
+        ui->textWay->setText("Sorry! All drivers are busy!");
+        return;
+    }
+    ui->textWay->setText(way);
+    ui->valueTimeWay->display(double(time));
+    ui->valuePrice->display(double(price));
+    ui->valueSalary->display(double(salary));
+    refreshListOfSearch();
 }

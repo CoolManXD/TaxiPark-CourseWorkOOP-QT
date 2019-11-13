@@ -21,11 +21,12 @@ float DriverDependent::getPercentageOfOrder()
 
 
 //--------------------Подсчет стоимости---------------------
-void DriverDependent::calculatePrice(float distance)
+void DriverDependent::calculatePrice(float distance,float &price, float &salary)
 {
-	std::cout << "Taxi park earns " << distance << "$" << std::endl;
-	float salary = distance * m_percentageOfOrder;
-	std::cout << "Driver will get " << salary << "$" << std::endl;
+//	std::cout << "Taxi park earns " << distance << "$" << std::endl;
+    price = distance;
+    salary = price * m_percentageOfOrder;
+//	std::cout << "Driver will get " << salary << "$" << std::endl;
 	m_salary += salary;
 }
 //-------------------Перегрузка операторов-------------------- 

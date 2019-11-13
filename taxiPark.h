@@ -19,14 +19,14 @@ public:
 	bool checkLoadData();
 
 	void receiveOrder(Client*);
-	void completeOrder();
+    bool completeOrder(QString &, float &, float &, float &);
     TaxiService* findNearestDriver(float&);
 	void busyDriverUpdates();
 
 	void showListBusyDriver();
 	void showListNoBusyDriver();
-	DriverDependent& getDependent(const int index);
-	DriverIndependent& getIndependent(const int index);
+    DriverDependent& getDependent(const int);
+    DriverIndependent& getIndependent(const int);
 
 	void paySalaries();
 

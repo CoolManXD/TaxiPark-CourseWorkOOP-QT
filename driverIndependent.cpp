@@ -49,14 +49,15 @@ float DriverIndependent::getPercentageOfFuel()
 
 //--------------------Услуги такси---------------------------
 
-void DriverIndependent::calculatePrice(float distance)
+void DriverIndependent::calculatePrice(float distance,float &price, float &salary)
 {
 	float percentage = m_percentageOfOrder;
 	if (m_isCompanyInsured) percentage -= m_percentageOfInsured;
 	if (m_isCompanyRepairServ) percentage -= m_percentageOfRepairServ;
 	if (m_isCompanyFuel) percentage -= m_percentageOfFuel;
-	float salary = distance * m_percentageOfOrder;
-	std::cout << "Driver earns " << salary << std::endl;
+    price = distance;
+    salary = distance * m_percentageOfOrder;
+//	std::cout << "Driver earns " << salary << std::endl;
 	m_salary += salary;
 }
 

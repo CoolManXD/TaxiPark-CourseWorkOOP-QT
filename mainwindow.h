@@ -29,6 +29,8 @@ private slots:
     void on_listL_itemClicked(); // QListWidgetItem *item
     void on_listD_itemClicked();
 
+    void on_confirmButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Map m_map;

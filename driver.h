@@ -44,8 +44,9 @@ public:
     virtual void setLocation(const QString&) override final;
 
     virtual float findWay(const QString&, const QString&) override final;
+    virtual float findWay(const QString& , const QString& , QString &) override final;
 
-    virtual void calculatePrice(float) override {};
+    virtual void calculatePrice(float, float &, float &) override {};
     virtual ~Driver() override {}
 
 	friend std::istream& operator>> (std::istream&, Driver&);

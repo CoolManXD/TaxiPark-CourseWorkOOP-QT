@@ -66,7 +66,7 @@ float Driver::findWay(const QString& from, const QString& destination)
 	int n = m_driverMap->m_map.quantityStreet;
 	const int INF{ 1000000000 };
 	int s = m_driverMap->m_map.listOfStreets[from];
-    QVector<float> d(n, INF), p(n);
+    QVector<float> d(n, INF);
 	d[s] = 0;
     QVector<bool> u(n);
 
@@ -89,34 +89,71 @@ float Driver::findWay(const QString& from, const QString& destination)
             if (d[v] + len < d[to])
             {
                 d[to] = d[v] + len;
-                p[to] = v;
             }
         }
 	}
+	return d[m_driverMap->m_map.listOfStreets[destination]];
+}
+
+float Driver::findWay(const QString& from, const QString& destination, QString &way)
+{
+    int n = m_driverMap->m_map.quantityStreet;
+    const int INF{ 1000000000 };
+    int s = m_driverMap->m_map.listOfStreets[from];
+    QVector<float> d(n, INF), p(n);
+    d[s] = 0;
+    QVector<bool> u(n);
+
+    for (int i = 0; i < n; ++i)
+    {
+        int v = -1;
+        for (int j = 0; j < n; ++j)
+            if (!u[j] && (v == -1 || d[j] < d[v]))
+                v = j;
+
+        if (m_driverMap->m_map.listOfStreets[destination] == v) break;
+        if (d[v] == INF)
+            break;
+        u[v] = true;
+
+        for (auto it = m_driverMap->m_trafficJams[v].begin(); it != m_driverMap->m_trafficJams[v].end(); ++it)
+        {
+            int to = it->first;
+            float len = it->second;
+            if (d[v] + len < d[to])
+            {
+                d[to] = d[v] + len;
+                p[to] = v;
+            }
+        }
+    }
 
     QVector<int> path;
-	for (int v = m_driverMap->m_map.listOfStreets[destination]; v != s; v = p[v])
+    for (int v = m_driverMap->m_map.listOfStreets[destination]; v != s; v = p[v])
         path.append(v);
     path.append(s);
 
     std::reverse(path.begin(), path.end());
 
-	for (auto index = path.begin(); index != path.end(); ++index)
-	{
-		for (auto street = m_driverMap->m_map.listOfStreets.begin(); street != m_driverMap->m_map.listOfStreets.end(); ++street)
+    for (auto index = path.begin(); index != path.end(); ++index)
+    {
+        for (auto street = m_driverMap->m_map.listOfStreets.begin(); street != m_driverMap->m_map.listOfStreets.end(); ++street)
         {
             if (street.value() == (*index))
-			{
+            {
+                way += street.key() + " -> ";
                 //std::cout << street->first << " -> ";
-				break;
-			}
+                break;
+            }
         }
-	}
-	/*std::cout << std::endl;*/
+    }
+    /*std::cout << std::endl;*/
 
-	return d[m_driverMap->m_map.listOfStreets[destination]];
+    return d[m_driverMap->m_map.listOfStreets[destination]];
 }
 
+
+//--------------Задать время----------------
 void Driver::setTimeAttributes(float time)
 {
 	m_busyTime = time;
