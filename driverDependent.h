@@ -3,7 +3,7 @@
 
 class DriverDependent : public Driver {
 private:
-	float m_salary{ 10 };
+    float m_salary{ 0 };
 	static constexpr float m_percentageOfOrder = 0.25f;
 public:
     DriverDependent(QString name = "undefined", int yearExp = 0, const Car& car = Car("undefined", "undefined", false))

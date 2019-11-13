@@ -123,6 +123,16 @@ void MainWindow::on_confirmButton_clicked()
 {
     //потом сдлеать меседж бокс
     const QString name = ui->editNameClient->text();
+    if(!ui->listL->currentIndex().isValid())
+    {
+        ui->textInfo->setText("Select location!");
+        return;
+    }
+    if(!ui->listD->currentIndex().isValid())
+    {
+        ui->textInfo->setText("Select destination!");
+        return;
+    }
     const QString location = ui->listL->currentItem()->text();
     const QString destination = ui->listD->currentItem()->text();
     m_park.receiveOrder(new Client{m_map, name, location, destination});
@@ -132,12 +142,13 @@ void MainWindow::on_confirmButton_clicked()
     float salary;
     if(!m_park.completeOrder(way, time, price, salary))
     {
-        ui->textWay->setText("Sorry! All drivers are busy!");
+        ui->textInfo->setText("Sorry! All drivers are busy!");
         return;
     }
     ui->textWay->setText(way);
     ui->valueTimeWay->display(double(time));
     ui->valuePrice->display(double(price));
     ui->valueSalary->display(double(salary));
+    ui->textInfo->setText("Thank for order. Please wait for driver.");
     refreshListOfSearch();
 }
