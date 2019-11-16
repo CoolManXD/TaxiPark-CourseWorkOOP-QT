@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>420</width>
-    <height>600</height>
+    <width>434</width>
+    <height>615</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -73,14 +73,17 @@ QListWidget::item:selected {
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="editNameClient"/>
+    </item>
     <item row="7" column="0">
-     <widget class="QLabel" name="labelSalary">
+     <widget class="QLabel" name="labelTimeWay">
       <property name="text">
-       <string>Salary of trip</string>
+       <string>Time of trip</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
+    <item row="8" column="0">
      <widget class="QLabel" name="labelPrice">
       <property name="text">
        <string>Price of trip</string>
@@ -88,34 +91,22 @@ QListWidget::item:selected {
      </widget>
     </item>
     <item row="5" column="0">
-     <widget class="QLabel" name="labelTimeWay">
+     <widget class="QLabel" name="labelnfo">
       <property name="text">
-       <string>Time of trip</string>
+       <string>Info</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="labelWay">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>85</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Way</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <widget class="QTextBrowser" name="textWay">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>85</height>
-       </size>
-      </property>
-     </widget>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="labelNameClient">
+        <property name="text">
+         <string>Name of the client:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item row="0" column="1">
      <widget class="QLabel" name="arrow">
@@ -130,20 +121,10 @@ QListWidget::item:selected {
       </property>
      </widget>
     </item>
-    <item row="7" column="2">
-     <widget class="QLCDNumber" name="valueSalary">
-      <property name="segmentStyle">
-       <enum>QLCDNumber::Flat</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QLineEdit" name="editNameClient"/>
-    </item>
     <item row="0" column="2">
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="labelNameD">
+       <widget class="QLabel" name="labelDestination">
         <property name="styleSheet">
          <string notr="true"/>
         </property>
@@ -161,7 +142,7 @@ QListWidget::item:selected {
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QLabel" name="labelSearchD">
+         <widget class="QLabel" name="labelSearchDestination">
           <property name="text">
            <string>Search</string>
           </property>
@@ -171,7 +152,7 @@ QListWidget::item:selected {
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="editSearchD">
+         <widget class="QLineEdit" name="editSearchDestination">
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -180,7 +161,7 @@ QListWidget::item:selected {
        </layout>
       </item>
       <item>
-       <widget class="QListWidget" name="listD">
+       <widget class="QListWidget" name="listDestination">
         <property name="cursor" stdset="0">
          <cursorShape>PointingHandCursor</cursorShape>
         </property>
@@ -188,10 +169,47 @@ QListWidget::item:selected {
       </item>
      </layout>
     </item>
+    <item row="6" column="2">
+     <widget class="QTextBrowser" name="textWay">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>85</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QLCDNumber" name="valueTimeWay">
+      <property name="smallDecimalPoint">
+       <bool>false</bool>
+      </property>
+      <property name="digitCount">
+       <number>5</number>
+      </property>
+      <property name="segmentStyle">
+       <enum>QLCDNumber::Flat</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="labelSalary">
+      <property name="text">
+       <string>Salary of trip</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="2">
+     <widget class="QLCDNumber" name="valueSalary">
+      <property name="segmentStyle">
+       <enum>QLCDNumber::Flat</enum>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="labelNameL">
+       <widget class="QLabel" name="labelLocation">
         <property name="font">
          <font>
           <family>Franklin Gothic Medium Cond</family>
@@ -211,7 +229,7 @@ QListWidget::item:selected {
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLabel" name="labelSearchL">
+         <widget class="QLabel" name="labelSearchLocation">
           <property name="text">
            <string>Search</string>
           </property>
@@ -221,7 +239,7 @@ QListWidget::item:selected {
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="editSearchL">
+         <widget class="QLineEdit" name="editSearchLocation">
           <property name="enabled">
            <bool>true</bool>
           </property>
@@ -233,7 +251,7 @@ QListWidget::item:selected {
        </layout>
       </item>
       <item>
-       <widget class="QListWidget" name="listL">
+       <widget class="QListWidget" name="listLocation">
         <property name="font">
          <font>
           <family>Franklin Gothic Medium Cond</family>
@@ -247,55 +265,7 @@ QListWidget::item:selected {
       </item>
      </layout>
     </item>
-    <item row="3" column="2">
-     <widget class="QTextBrowser" name="textInfo">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>150</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QLCDNumber" name="valueTimeWay">
-      <property name="smallDecimalPoint">
-       <bool>false</bool>
-      </property>
-      <property name="digitCount">
-       <number>5</number>
-      </property>
-      <property name="segmentStyle">
-       <enum>QLCDNumber::Flat</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="2">
-     <widget class="QLCDNumber" name="valuePrice">
-      <property name="segmentStyle">
-       <enum>QLCDNumber::Flat</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QLabel" name="labelNameClient">
-        <property name="text">
-         <string>Name of the client:</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="labelnfo">
-      <property name="text">
-       <string>Info</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
+    <item row="4" column="0">
      <widget class="QPushButton" name="confirmButton">
       <property name="cursor">
        <cursorShape>PointingHandCursor</cursorShape>
@@ -308,19 +278,100 @@ QListWidget::item:selected {
       </property>
      </widget>
     </item>
+    <item row="8" column="2">
+     <widget class="QLCDNumber" name="valuePrice">
+      <property name="segmentStyle">
+       <enum>QLCDNumber::Flat</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QCheckBox" name="checkBox">
+      <property name="text">
+       <string>CheckBox</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QTextBrowser" name="textInfo">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>150</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Passengers</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>4</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="labelWay">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>85</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Way</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionBusyList"/>
+   <addaction name="actionInfo"/>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>420</width>
+     <width>434</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionBusyList">
+   <property name="text">
+    <string>BusyList</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="Resources.qrc"/>

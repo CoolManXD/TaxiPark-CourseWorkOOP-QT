@@ -92,6 +92,7 @@ float Driver::findWay(const QString& from, const QString& destination)
             }
         }
 	}
+
 	return d[m_driverMap->m_map.listOfStreets[destination]];
 }
 
@@ -147,6 +148,9 @@ float Driver::findWay(const QString& from, const QString& destination, QString &
             }
         }
     }
+    way[way.size()-4] = ' ';
+    way[way.size()-3] = ' ';
+    way[way.size()-2] = ' ';
     /*std::cout << std::endl;*/
 
     return d[m_driverMap->m_map.listOfStreets[destination]];

@@ -3,6 +3,8 @@
 #include "driverDependent.h"
 #include "driverIndependent.h"
 
+class BusyListWindow;
+
 class Client;
 
 class TaxiPark {
@@ -37,6 +39,8 @@ public:
 
 	friend std::ostream& operator<< (std::ostream&, TaxiPark&);
 	~TaxiPark() {}
+
+    friend class BusyListWindow;
 };
 
 
