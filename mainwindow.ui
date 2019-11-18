@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>434</width>
-    <height>615</height>
+    <height>720</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>420</width>
-    <height>600</height>
+    <height>650</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>720</width>
-    <height>900</height>
+    <height>950</height>
    </size>
   </property>
   <property name="font">
@@ -72,271 +72,21 @@ QListWidget::item:selected {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="2">
-     <widget class="QLineEdit" name="editNameClient"/>
-    </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="labelTimeWay">
-      <property name="text">
-       <string>Time of trip</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="labelPrice">
-      <property name="text">
-       <string>Price of trip</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="labelnfo">
-      <property name="text">
-       <string>Info</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QLabel" name="labelNameClient">
-        <property name="text">
-         <string>Name of the client:</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="arrow">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="text">
-       <string>----&gt;</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QLabel" name="labelDestination">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="text">
-         <string> Destination</string>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::AutoText</enum>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="labelSearchDestination">
-          <property name="text">
-           <string>Search</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="editSearchDestination">
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QListWidget" name="listDestination">
-        <property name="cursor" stdset="0">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="6" column="2">
-     <widget class="QTextBrowser" name="textWay">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>85</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="2">
-     <widget class="QLCDNumber" name="valueTimeWay">
-      <property name="smallDecimalPoint">
-       <bool>false</bool>
-      </property>
-      <property name="digitCount">
-       <number>5</number>
-      </property>
-      <property name="segmentStyle">
-       <enum>QLCDNumber::Flat</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="0">
-     <widget class="QLabel" name="labelSalary">
-      <property name="text">
-       <string>Salary of trip</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="2">
-     <widget class="QLCDNumber" name="valueSalary">
-      <property name="segmentStyle">
-       <enum>QLCDNumber::Flat</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="labelLocation">
-        <property name="font">
-         <font>
-          <family>Franklin Gothic Medium Cond</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string> Location</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="labelSearchLocation">
-          <property name="text">
-           <string>Search</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="editSearchLocation">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QListWidget" name="listLocation">
-        <property name="font">
-         <font>
-          <family>Franklin Gothic Medium Cond</family>
-          <pointsize>-1</pointsize>
-         </font>
-        </property>
-        <property name="cursor" stdset="0">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="confirmButton">
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>CONFIRM</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="2">
-     <widget class="QLCDNumber" name="valuePrice">
-      <property name="segmentStyle">
-       <enum>QLCDNumber::Flat</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QCheckBox" name="checkBox">
-      <property name="text">
-       <string>CheckBox</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QTextBrowser" name="textInfo">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>150</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_6">
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Passengers</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox">
-        <property name="minimum">
-         <number>1</number>
-        </property>
-        <property name="maximum">
-         <number>4</number>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="labelWay">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>85</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Way</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>391</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page1"/>
+    <widget class="QWidget" name="page2"/>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -349,8 +99,8 @@ QListWidget::item:selected {
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionOrder"/>
    <addaction name="actionBusyList"/>
-   <addaction name="actionInfo"/>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -363,13 +113,24 @@ QListWidget::item:selected {
    </property>
   </widget>
   <action name="actionBusyList">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/data/dataBase/iconTimer.png</normaloff>:/data/dataBase/iconTimer.png</iconset>
+   </property>
    <property name="text">
     <string>BusyList</string>
    </property>
   </action>
-  <action name="actionInfo">
+  <action name="actionOrder">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/data/dataBase/iconOrder.png</normaloff>:/data/dataBase/iconOrder.png</iconset>
+   </property>
    <property name="text">
-    <string>Info</string>
+    <string>Order</string>
+   </property>
+   <property name="toolTip">
+    <string>Order</string>
    </property>
   </action>
  </widget>

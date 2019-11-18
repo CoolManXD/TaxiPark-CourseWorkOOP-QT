@@ -3,8 +3,7 @@
 #include "mainwindow.h"
 #include <QString>
 
-BusyListWindow::BusyListWindow(MainWindow *mainwindow, TaxiPark *park, QWidget *parent) :
-    m_mainwindow(mainwindow),
+BusyListWindow::BusyListWindow(TaxiPark *park, QWidget *parent) :
     m_park(park),
     QWidget(parent),
     ui(new Ui::BusyListWindow)
@@ -76,8 +75,8 @@ void BusyListWindow::on_buttonUpdateTime_clicked()
     updateBusyList();
 }
 
-void BusyListWindow::closeEvent(QCloseEvent *event)
-{
-    m_mainwindow->show();
-    event->accept();
-}
+//void BusyListWindow::closeEvent(QCloseEvent *event)
+//{
+//    m_mainwindow->show();
+//    event->accept();
+//}

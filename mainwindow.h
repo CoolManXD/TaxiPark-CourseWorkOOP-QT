@@ -13,7 +13,7 @@
 
 //#include "busylistwindow.h"
 class BusyListWindow;
-#include <QLabel>
+class OrderWindow;
 
 namespace Ui {
 class MainWindow;
@@ -26,26 +26,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    friend class BusyListWindow;
+
 private slots:
-
-    void on_editSearchLocation_textChanged(const QString &);
-    void on_editSearchDestination_textChanged(const QString &);
-    void on_listLocation_itemClicked(); // QListWidgetItem *item
-    void on_listDestination_itemClicked();
-
-    void on_confirmButton_clicked();
-
     void on_actionBusyList_triggered();
+
+    void on_actionOrder_triggered();
 
 private:
     Ui::MainWindow *ui;
     Map m_map;
     TaxiPark m_park;
-    void refreshListOfSearch();
 
-//    BusyListWindow *p;
-//    QLabel *p2;
+    BusyListWindow *busyListWindow;
+    OrderWindow *orderWindow;
+
 
 };
 

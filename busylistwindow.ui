@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>TaxiPark.BusyList</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Resources.qrc">
+    <normaloff>:/data/dataBase/iconTimer.png</normaloff>:/data/dataBase/iconTimer.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QLineEdit {
@@ -68,7 +72,7 @@ QListWidget::item:selected {
      </property>
      <property name="minimumSize">
       <size>
-       <width>200</width>
+       <width>84</width>
        <height>0</height>
       </size>
      </property>
@@ -152,6 +156,8 @@ QListWidget::item:selected {
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

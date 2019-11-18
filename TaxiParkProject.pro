@@ -26,6 +26,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     map.cpp \
+    orderwindow.cpp \
     taxiPark.cpp \
     taxiService.cpp
 
@@ -39,12 +40,14 @@ HEADERS += \
     driverMap.h \
     mainwindow.h \
     map.h \
+    orderwindow.h \
     taxiPark.h \
     taxiService.h
 
 FORMS += \
     busylistwindow.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    orderwindow.ui
 
 
 # Default rules for deployment.

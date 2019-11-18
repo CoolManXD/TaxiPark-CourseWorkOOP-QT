@@ -7,5 +7,7 @@
         <file>dataBase/listOfStreets.txt</file>
         <file>dataBase/map.txt</file>
         <file>dataBase/iconTaxiPark.png</file>
+        <file>dataBase/iconTimer.png</file>
+        <file>dataBase/iconOrder.png</file>
     </qresource>
 </RCC>
