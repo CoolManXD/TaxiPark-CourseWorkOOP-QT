@@ -4,10 +4,10 @@
 //-------------------Загрузка карты(графа) с файла-------------------- 
 void Map::loadMap()
 {
-    QDir dir = QDir::current();
-//    QFile fs(":/data/dataBase/listOfStreets.txt");
+//    QDir dir = QDir::current().di;
+    QFile fs(":/data/dataBase/listOfStreets.txt");
 //    QFile fs("./dataBase/listOfStreets.txt");
-    QFile fs(dir.absoluteFilePath("listOfStreets.txt"));
+//    QFile fs(dir.absoluteFilePath("listOfStreets.txt"));
     if (!fs.open(QFile::ReadOnly | QFile::Text))
     {
         return;
@@ -27,8 +27,8 @@ void Map::loadMap()
 	}
 
 	fs.close();
-//    fs.setFileName(":/data/dataBase/map.txt");
-    fs.setFileName("./dataBase/map.txt");
+    fs.setFileName(":/data/dataBase/map.txt");
+//    fs.setFileName("./dataBase/map.txt");
     if (!fs.open(QFile::ReadOnly | QFile::Text))
     {
         return;
