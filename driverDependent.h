@@ -3,11 +3,11 @@
 
 class DriverDependent : public Driver {
 private:
-    float m_salary{ 0 };
+    float m_salary;
 	static constexpr float m_percentageOfOrder = 0.25f;
 public:
-    DriverDependent(QString name = "undefined", int yearExp = 0, const Car& car = Car("undefined", "undefined", false))
-		: Driver{ name, yearExp, car }
+    DriverDependent(float salary = 0, QString name = "undefined", int yearExp = 0, const Car& car = Car("undefined", "undefined", false))
+        : Driver{ name, yearExp, car }, m_salary{salary}
 	{
 	}
 	void setSalary(float);

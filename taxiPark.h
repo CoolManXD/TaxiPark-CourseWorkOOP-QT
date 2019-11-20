@@ -9,32 +9,32 @@ class Client;
 
 class TaxiPark {
 private:
-    QVector<DriverDependent> driversDependent;
-    QVector<DriverIndependent> driversIndependent;
-	Client* m_client{ NULL };
-	float m_earnMoney{ 10000 };
-	void loadData();
+    QVector<DriverDependent> driversDependent; //зависимые водители (без своего автомобиля)
+    QVector<DriverIndependent> driversIndependent; //независимые водители
+    Client* m_client{ NULL }; //клиент
+    float m_earnMoney; //финансы компании
+    void loadData(); //загрузка данных с файла
 public:
 	TaxiPark() {
 		loadData();
 	}
 
-	void receiveOrder(Client*);
-    bool completeOrder(QString &, float &, float &, float &, bool);
-    TaxiService* findNearestDriver(float&, bool);
-	void busyDriverUpdates();
+    void receiveOrder(Client*); // получение заказа от клиента
+    bool completeOrder(QString &, float &, float &, float &, bool); // обработка и выполнение заказа
+    TaxiService* findNearestDriver(float&, bool); // поиск ближайшего свободного водителя до клиента
+    void busyDriverUpdates(); //обновление статуса зайнятости водителей
 
-	void showListBusyDriver();
-	void showListNoBusyDriver();
     DriverDependent& getDependent(const int);
     DriverIndependent& getIndependent(const int);
+    float getCompanyMoney();
 
-	void paySalaries();
+    void saveFinancialInfo(); //сохранить финансовую информацию в файлы
+    void paySalaries(); //выплата з/п
 
-	void addDependentDriver();
+    void addDependentDriver();
 	void addIndependentDriver();
 
-	void setDriverMap(DriverMap*);
+    void setDriverMap(DriverMap*); //передать водителям карту (static)
 
 	friend std::ostream& operator<< (std::ostream&, TaxiPark&);
 	~TaxiPark() {}

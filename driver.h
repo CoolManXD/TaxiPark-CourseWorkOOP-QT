@@ -44,7 +44,7 @@ public:
     virtual void setLocation(const QString&) override final;
 
     virtual float findWay(const QString&, const QString&) override final;
-    virtual float findWay(const QString& , const QString& , QString &) override final;
+    virtual float findWay(const QString& , const QString& , QString &) override final; //возвращает маршрут
 
     virtual void calculatePrice(float, float &, float &) override {}
     virtual ~Driver() override {}

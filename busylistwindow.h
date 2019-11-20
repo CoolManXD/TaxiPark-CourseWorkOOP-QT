@@ -1,9 +1,8 @@
+// виджет с списком зайнятости водителей
 #ifndef BUSYLISTWINDOW_H
 #define BUSYLISTWINDOW_H
 
 #include <QWidget>
-
-//#include "taxiPark.h"
 #include "mainwindow.h"
 
 namespace Ui {
@@ -17,11 +16,11 @@ class BusyListWindow : public QWidget
 public:
     explicit BusyListWindow(TaxiPark *, QWidget *parent = nullptr);
     ~BusyListWindow();
-    void updateBusyList();
+
+    void updateBusyList(); // обновить списки, время до особождения водителей
 
 private slots:
-    void on_buttonUpdateTime_clicked();
-
+    void on_buttonUpdateTime_clicked(); // вызов с помощю кнопки updateBusyList()
 //    void closeEvent(QCloseEvent *event);
 
 private:

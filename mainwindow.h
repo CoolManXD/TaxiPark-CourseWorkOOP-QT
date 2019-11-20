@@ -1,3 +1,4 @@
+//Главное окно с контейнером для других кастомных виджетов
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -8,10 +9,8 @@
 #include "taxiPark.h"
 #include "map.h"
 #include "driverMap.h"
-#include "taxiPark.h"
 #include "client.h"
 
-//#include "busylistwindow.h"
 class BusyListWindow;
 class OrderWindow;
 
@@ -28,9 +27,8 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_actionBusyList_triggered();
-
-    void on_actionOrder_triggered();
+    void on_actionOrder_triggered(); // открыть виджет с окном формы для принятия заказа от клиента
+    void on_actionBusyList_triggered(); // открыть виджет с списком зайнятости водителей
 
 private:
     Ui::MainWindow *ui;
@@ -39,8 +37,6 @@ private:
 
     BusyListWindow *busyListWindow;
     OrderWindow *orderWindow;
-
-
 };
 
 #endif // MAINWINDOW_H

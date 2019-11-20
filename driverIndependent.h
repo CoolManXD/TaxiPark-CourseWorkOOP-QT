@@ -4,7 +4,7 @@
 
 class DriverIndependent: public Driver {
 private:
-	float m_salary{ 0 };
+    float m_salary;
 	bool m_isCompanyInsured;
 	bool m_isCompanyRepairServ;
 	bool m_isCompanyFuel;
@@ -14,8 +14,8 @@ private:
 	static constexpr float m_percentageOfFuel = 0.05f;
 public:
 	
-    DriverIndependent(bool isCompanyInsured = false, bool isCompanyRepairServ = false, bool isCompanyFuel = false, QString name = "undefined", int yearExp = 0, const Car& car = Car("undefined", "undefined", false))
-		: m_isCompanyInsured{ isCompanyInsured }, m_isCompanyRepairServ{ isCompanyRepairServ }, m_isCompanyFuel{ isCompanyFuel }, Driver{ name, yearExp, car }
+    DriverIndependent(float salary = 0, bool isCompanyInsured = false, bool isCompanyRepairServ = false, bool isCompanyFuel = false, QString name = "undefined", int yearExp = 0, const Car& car = Car("undefined", "undefined", false))
+        :m_salary{salary}, m_isCompanyInsured{ isCompanyInsured }, m_isCompanyRepairServ{ isCompanyRepairServ }, m_isCompanyFuel{ isCompanyFuel }, Driver{ name, yearExp, car }
 	{
 	}
 	void setSalary(float);
