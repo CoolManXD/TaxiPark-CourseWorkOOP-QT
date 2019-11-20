@@ -26,6 +26,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     map.cpp \
+    mapwindow.cpp \
     orderwindow.cpp \
     taxiPark.cpp \
     taxiService.cpp
@@ -40,6 +41,7 @@ HEADERS += \
     driverMap.h \
     mainwindow.h \
     map.h \
+    mapwindow.h \
     orderwindow.h \
     taxiPark.h \
     taxiService.h
@@ -47,6 +49,7 @@ HEADERS += \
 FORMS += \
     busylistwindow.ui \
     mainwindow.ui \
+    mapwindow.ui \
     orderwindow.ui
 
 

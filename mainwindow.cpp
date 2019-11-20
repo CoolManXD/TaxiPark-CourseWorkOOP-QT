@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "busylistwindow.h"
 #include "orderwindow.h"
+#include "mapwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,9 +14,11 @@ MainWindow::MainWindow(QWidget *parent) :
     setCentralWidget(ui->stackedWidget);
     orderWindow = new OrderWindow(&m_map, &m_park);
     busyListWindow = new BusyListWindow(&m_park);
+    mapWindow = new MapWindow(&m_park);
 
     ui->stackedWidget->insertWidget(0, orderWindow);
     ui->stackedWidget->insertWidget(1, busyListWindow);
+    ui->stackedWidget->insertWidget(2, mapWindow);
 
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -27,13 +30,17 @@ MainWindow::~MainWindow()
 }
 
 //---------------Открытие виджетов-----------------
+void MainWindow::on_actionOrder_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
 void MainWindow::on_actionBusyList_triggered()
 {
     ui->stackedWidget->setCurrentIndex(1);
     busyListWindow->updateBusyList();
 }
-
-void MainWindow::on_actionOrder_triggered()
+void MainWindow::on_actionMapTown_triggered()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(2);
+    mapWindow->updateWaysView();
 }

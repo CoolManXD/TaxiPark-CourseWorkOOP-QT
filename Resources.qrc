@@ -12,5 +12,7 @@
         <file>dataBase/companyInfo.txt</file>
         <file>dataBase/salaryDependent.txt</file>
         <file>dataBase/salaryIndependent.txt</file>
+        <file>dataBase/graph.png</file>
+        <file>dataBase/iconMap.png</file>
     </qresource>
 </RCC>
