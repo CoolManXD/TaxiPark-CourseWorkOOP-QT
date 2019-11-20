@@ -1,5 +1,5 @@
-Serhii 7
-Roma 5
-Vitaliy 10
-Alexey 9
-Anatoliy 129
+Serhii_Yanchuk 7
+Roma_Moroz 5
+Vitaliy_Omelchenko 10
+Alexey_Zhuk 9
+Anatoliy_Novikov 129

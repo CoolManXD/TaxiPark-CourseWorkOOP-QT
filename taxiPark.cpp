@@ -1,6 +1,6 @@
 #include "taxiPark.h"
 #include "client.h"
-#include <fstream>
+#include <QMessageBox>
 #include <iostream>
 
 //-------------------Загрузка данных с файла и проверка-------------------- 
@@ -29,6 +29,9 @@ void TaxiPark::loadData() {
         inCar >> symbol;
         inCar >> symbol;
         inDriver >> name;
+        int pos = name.indexOf('_');
+        if(pos != -1)
+            name[pos] = ' ';
         inDriver >> yearExp;
 		isVip = (symbol == '+') ? true : false;
         driversDependent.append(DriverDependent(name, yearExp, Car(model, regPlate, isVip)));
@@ -59,6 +62,9 @@ void TaxiPark::loadData() {
         inCar >> symbol;
         inCar >> symbol;
         inDriver >> name;
+        int pos = name.indexOf('_');
+        if(pos != -1)
+            name[pos] = ' ';
         inDriver >> yearExp;
         inDriver >> symbol1;
         inDriver >> symbol1;
@@ -76,58 +82,6 @@ void TaxiPark::loadData() {
     fsDriver.close();
 }
 
-bool TaxiPark::checkLoadData()
-{
-	bool OK{ true };
-	for (auto it = driversDependent.begin(); it != driversDependent.end(); ++it)
-	{
-		if (it->getName() == "")
-		{
-			std::cout << "Mistake in name\n";
-			OK = false;
-		}
-		if (it->getYearExp() < 0 || it->getYearExp() > 200)
-		{
-			std::cout << "Mistake in year of experience\n";
-			OK = false;
-		}
-		if (it->getCar().getModel() == "")
-		{
-			std::cout << "mistake in name of model\n";
-			OK = false;
-		}
-		if (it->getCar().getRegPlate() == "")
-		{
-			std::cout << "mistake in registation plate\n";
-			OK = false;
-		}
-	}
-	for (auto it = driversIndependent.begin(); it != driversIndependent.end(); ++it)
-	{
-		if (it->getName() == "")
-		{
-			std::cout << "Mistake in name\n";
-			OK = false;
-		}
-		if (it->getYearExp() < 0 || it->getYearExp() > 200)
-		{
-			std::cout << "Mistake in year of experience\n";
-			OK = false;
-		}
-		if (it->getCar().getModel() == "")
-		{
-			std::cout << "mistake in name of model\n";
-			OK = false;
-		}
-		if (it->getCar().getRegPlate() == "")
-		{
-			std::cout << "mistake in registation plate\n";
-			OK = false;
-		}
-	}
-	return OK;
-}
-
 void TaxiPark::setDriverMap(DriverMap* map)
 {
 	driversDependent[0].setDriverMap(map);
@@ -140,11 +94,11 @@ void TaxiPark::receiveOrder(Client* client)
     m_client = client;
 }
 
-bool TaxiPark::completeOrder(QString &way, float &time, float &price, float &salary)
+bool TaxiPark::completeOrder(QString &way, float &time, float &price, float &salary, bool isVip)
 {
     busyDriverUpdates();
     float durationToClient = 999999;
-    TaxiService* driver = findNearestDriver(durationToClient);
+    TaxiService* driver = findNearestDriver(durationToClient, isVip);
     if (driver == NULL) return false;
     /*DriverDependent* driver2 = dynamic_cast<DriverDependent*>(driver);*/
 
@@ -161,37 +115,84 @@ bool TaxiPark::completeOrder(QString &way, float &time, float &price, float &sal
     return true;
 }
 
-TaxiService* TaxiPark::findNearestDriver(float& duration)
+TaxiService* TaxiPark::findNearestDriver(float& duration, bool isVip)
 {
 	TaxiService* driver = NULL;
-    float anotherDuration;
-	for (auto it = driversDependent.begin(); it != driversDependent.end(); ++it)
-	{
-		if (!(it->isBusy()))
-		{
-			anotherDuration = it->findWay(it->getLocation(), m_client->getLocation());
-            //std::cout << "will take " << anotherDuration << " minutes (" << it->getName() << ")\n";
-			if (duration > anotherDuration)
-			{
-				duration = anotherDuration;
-				driver = &(*it);
-			}
-		}
-	}
+    if (isVip)
+    {
+        float anotherDuration;
+        for (auto it = driversDependent.begin(); it != driversDependent.end(); ++it)
+        {
+            if (!it->isBusy() && it->getCar().isVip())
+            {
+                anotherDuration = it->findWay(it->getLocation(), m_client->getLocation());
 
-	for (auto it = driversIndependent.begin(); it != driversIndependent.end(); ++it)
-	{
-		if (!(it->isBusy()))
-		{
-			anotherDuration = it->findWay(it->getLocation(), m_client->getLocation());
-            //std::cout << "will take " << anotherDuration << " minutes (" << it->getName() << ")\n";
-			if (duration > anotherDuration)
-			{
-				duration = anotherDuration;
-				driver = &(*it);
-			}
-		}
-	}
+                if (duration > anotherDuration)
+                {
+                    duration = anotherDuration;
+                    driver = &(*it);
+                }
+            }
+        }
+
+        for (auto it = driversIndependent.begin(); it != driversIndependent.end(); ++it)
+        {
+            if (!it->isBusy() && it->getCar().isVip())
+            {
+                anotherDuration = it->findWay(it->getLocation(), m_client->getLocation());
+
+                if (duration > anotherDuration)
+                {
+                    duration = anotherDuration;
+                    driver = &(*it);
+                }
+            }
+        }
+        if (driver != NULL)
+        {
+            driver->changeIsBusy();
+            return driver;
+        }
+        else
+        {
+            QMessageBox::StandardButton reply = QMessageBox::question(NULL,"Vip","Free VIP car isn't found. Should we find not VIP car?",QMessageBox::Yes | QMessageBox::No);
+            if (reply == QMessageBox::No)
+            {
+                delete m_client;
+                m_client = NULL;
+                return NULL;
+            }
+        }
+    }
+
+    float anotherDuration;
+    for (auto it = driversDependent.begin(); it != driversDependent.end(); ++it)
+    {
+        if (!it->isBusy())
+        {
+            anotherDuration = it->findWay(it->getLocation(), m_client->getLocation());
+
+            if (duration > anotherDuration)
+            {
+                duration = anotherDuration;
+                driver = &(*it);
+            }
+        }
+    }
+
+    for (auto it = driversIndependent.begin(); it != driversIndependent.end(); ++it)
+    {
+        if (!it->isBusy())
+        {
+            anotherDuration = it->findWay(it->getLocation(), m_client->getLocation());
+
+            if (duration > anotherDuration)
+            {
+                duration = anotherDuration;
+                driver = &(*it);
+            }
+        }
+    }
 
 	if (driver == NULL)
 	{

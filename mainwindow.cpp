@@ -20,17 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
 //    ui->stackedWidget->addWidget(busyListWindow);
 
     ui->stackedWidget->setCurrentIndex(0);
-//    p = new BusyListWindow();
-//    p2 = new QLabel();
-//    p2->setText("aaaaaaaaaa");
-//    ui->stackedWidget->addWidget(p2);
-//    ui->stackedWidget->addWidget(p);
-
-//    ui->comboBox->addItem(tr("Page 1"));
-//    ui->comboBox->addItem(tr("Page 2"));
-//    ui->comboBox->addItem(tr("Page 3"));
-//    ui->comboBox->addItem(tr("Page 4"));
-//    connect(ui->comboBox, SIGNAL(activated(int)),ui->stackedWidget,SLOT(setCurrentIndex(int)));
 }
 
 MainWindow::~MainWindow()

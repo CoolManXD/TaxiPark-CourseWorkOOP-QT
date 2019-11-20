@@ -17,7 +17,7 @@ private:
     float m_busyTime{ 0 };
 	std::chrono::steady_clock::time_point m_startTime;
 
-    QString m_location{ "1street" };
+    QString m_location{ "Steinway Street" };
 	static DriverMap* m_driverMap;
 
 public:
@@ -46,7 +46,7 @@ public:
     virtual float findWay(const QString&, const QString&) override final;
     virtual float findWay(const QString& , const QString& , QString &) override final;
 
-    virtual void calculatePrice(float, float &, float &) override {};
+    virtual void calculatePrice(float, float &, float &) override {}
     virtual ~Driver() override {}
 
 	friend std::istream& operator>> (std::istream&, Driver&);

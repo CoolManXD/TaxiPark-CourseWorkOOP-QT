@@ -68,7 +68,7 @@ QLabel, QListWidget, QTextBrowser, QPushButton, QLineEdit {
 }
 
 QListWidget::item:selected {
-	background-color: #5555FF;
+
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -92,6 +92,9 @@ QListWidget::item:selected {
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
     <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>

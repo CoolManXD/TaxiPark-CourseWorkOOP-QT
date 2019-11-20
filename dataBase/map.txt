@@ -1,8 +1,18 @@
-6
-1street 2street 10
-1street 4street 50
-1street 5street 30
-2street 3street 20
-3street 4street 10
-4street 5street 30
-5street 6street 40
+15
+Broadway Houston_Street 7
+Houston_Street Canal_Street 5
+Houston_Street Park_Avenues 3
+Canal_Street Christopher_Street 10
+Avenue Park_Avenues 3
+Avenue Maiden_Lane 4
+Avenue Christopher_Street 5
+Maiden_Lane Steinway_Street 5
+Maiden_Lane Utopia_Parkway 8
+Christopher_Street Fruit_Streets 5
+Fruit_Streets Love_Lane 5
+Utopia_Parkway Love_Lane 5
+Utopia_Parkway Victory_Boulevard 4
+Love_Lane Arthur_Avenue 4
+Victory_Boulevard Mosholu_Parkway 3
+Victory_Boulevard Arthur_Avenue 5
+Mosholu_Parkway Lexington_Avenues 6

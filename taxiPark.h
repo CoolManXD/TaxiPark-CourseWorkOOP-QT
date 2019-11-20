@@ -18,11 +18,10 @@ public:
 	TaxiPark() {
 		loadData();
 	}
-	bool checkLoadData();
 
 	void receiveOrder(Client*);
-    bool completeOrder(QString &, float &, float &, float &);
-    TaxiService* findNearestDriver(float&);
+    bool completeOrder(QString &, float &, float &, float &, bool);
+    TaxiService* findNearestDriver(float&, bool);
 	void busyDriverUpdates();
 
 	void showListBusyDriver();

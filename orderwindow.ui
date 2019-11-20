@@ -55,13 +55,14 @@ QPushButton:default {
     border-color: navy; /* make the default button prominent */
 }
 
-QLabel, QListWidget, QTextBrowser, QPushButton, QLineEdit {
+QLabel, QListWidget, QTextBrowser, QPushButton, QLineEdit, QCheckBox {
 	font-family: &quot;Franklin Gothic Medium Cond&quot;;
 	font-size: 24px;
 }
 
+
 QListWidget::item:selected {
-	background-color: #5555FF;
+	
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -124,16 +125,56 @@ QListWidget::item:selected {
      </item>
     </layout>
    </item>
-   <item row="0" column="1">
-    <widget class="QLabel" name="arrow">
-     <property name="enabled">
-      <bool>true</bool>
+   <item row="2" column="2">
+    <widget class="QCheckBox" name="checkBoxIsVip">
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>----&gt;</string>
+      <string>VIP car </string>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="tristate">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="labelPrice">
+     <property name="text">
+      <string>Price of trip</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <widget class="QLCDNumber" name="valueTimeWay">
+     <property name="smallDecimalPoint">
+      <bool>false</bool>
+     </property>
+     <property name="digitCount">
+      <number>5</number>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="labelTimeWay">
+     <property name="text">
+      <string>Time of trip</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="labelNameClient">
+     <property name="text">
+      <string>Name of the client:</string>
      </property>
     </widget>
    </item>
@@ -185,13 +226,6 @@ QListWidget::item:selected {
      </item>
     </layout>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="labelNameClient">
-     <property name="text">
-      <string>Name of the client:</string>
-     </property>
-    </widget>
-   </item>
    <item row="2" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
@@ -203,15 +237,37 @@ QListWidget::item:selected {
      </item>
      <item>
       <widget class="QSpinBox" name="spinBox">
+       <property name="font">
+        <font>
+         <family>Franklin Gothic Demi Cond</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
        <property name="minimum">
         <number>1</number>
        </property>
        <property name="maximum">
         <number>4</number>
        </property>
+       <property name="stepType">
+        <enum>QAbstractSpinBox::DefaultStepType</enum>
+       </property>
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="arrow">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string>----&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </item>
    <item row="3" column="0">
     <widget class="QPushButton" name="confirmButton">
@@ -227,13 +283,6 @@ QListWidget::item:selected {
     </widget>
    </item>
    <item row="4" column="0">
-    <widget class="QLabel" name="labelnfo">
-     <property name="text">
-      <string>Info</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0">
     <widget class="QLabel" name="labelWay">
      <property name="maximumSize">
       <size>
@@ -246,31 +295,7 @@ QListWidget::item:selected {
      </property>
     </widget>
    </item>
-   <item row="6" column="0">
-    <widget class="QLabel" name="labelTimeWay">
-     <property name="text">
-      <string>Time of trip</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2">
-    <widget class="QCheckBox" name="checkBox">
-     <property name="text">
-      <string>CheckBox</string>
-     </property>
-    </widget>
-   </item>
    <item row="4" column="2">
-    <widget class="QTextBrowser" name="textInfo">
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>150</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="2">
     <widget class="QTextBrowser" name="textWay">
      <property name="maximumSize">
       <size>
@@ -281,40 +306,20 @@ QListWidget::item:selected {
     </widget>
    </item>
    <item row="9" column="0">
-    <widget class="QLabel" name="labelPrice">
-     <property name="text">
-      <string>Price of trip</string>
-     </property>
-    </widget>
-   </item>
-   <item row="10" column="0">
     <widget class="QLabel" name="labelSalary">
      <property name="text">
       <string>Salary of trip</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="2">
-    <widget class="QLCDNumber" name="valueTimeWay">
-     <property name="smallDecimalPoint">
-      <bool>false</bool>
-     </property>
-     <property name="digitCount">
-      <number>5</number>
-     </property>
-     <property name="segmentStyle">
-      <enum>QLCDNumber::Flat</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="2">
+   <item row="8" column="2">
     <widget class="QLCDNumber" name="valuePrice">
      <property name="segmentStyle">
       <enum>QLCDNumber::Flat</enum>
      </property>
     </widget>
    </item>
-   <item row="10" column="2">
+   <item row="9" column="2">
     <widget class="QLCDNumber" name="valueSalary">
      <property name="segmentStyle">
       <enum>QLCDNumber::Flat</enum>
