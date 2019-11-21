@@ -2,6 +2,7 @@
 #include "driverMap.h"
 #include "client.h"
 #include <QMessageBox>
+
 #include <iostream>
 
 //-------------------Загрузка данных с файла и проверка-------------------- 
@@ -269,7 +270,14 @@ DriverIndependent& TaxiPark::getIndependent(const int index)
 {
 	return driversIndependent[index];
 }
-
+QVector<DriverDependent>& TaxiPark::getDependentDrivers()
+{
+    return driversDependent;
+}
+QVector<DriverIndependent>& TaxiPark::getIndependentDrivers()
+{
+    return driversIndependent;
+}
 float TaxiPark::getCompanyMoney()
 {
     return m_earnMoney;
@@ -290,8 +298,8 @@ void TaxiPark::paySalaries()
 		it->setSalary(0);
 	}
 	m_earnMoney -= totalSalary;
-	std::cout << "Net profit: " << m_earnMoney << std::endl;
-	std::cout << "Driver received in total: " << totalSalary << std::endl;
+    QString message = "Net profit: " + QString::number(m_earnMoney) + "\nTotal size of salary: " + QString::number(totalSalary);
+    QMessageBox::information(NULL, "Finance", message);
 }
 
 void TaxiPark::saveFinancialInfo()

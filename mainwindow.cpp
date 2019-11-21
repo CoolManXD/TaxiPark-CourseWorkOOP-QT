@@ -1,8 +1,11 @@
 #include "mainwindow.h"
+
 #include "ui_mainwindow.h"
 #include "busylistwindow.h"
 #include "orderwindow.h"
 #include "mapwindow.h"
+#include "infodriverswindow.h"
+#include "financialwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,10 +18,14 @@ MainWindow::MainWindow(QWidget *parent) :
     orderWindow = new OrderWindow(&m_map, &m_park);
     busyListWindow = new BusyListWindow(&m_park);
     mapWindow = new MapWindow(&m_park);
+    infoDriversWindow = new InfoDriversWindow(&m_park);
+    financialWindow = new FinancialWindow(&m_park);
 
     ui->stackedWidget->insertWidget(0, orderWindow);
     ui->stackedWidget->insertWidget(1, busyListWindow);
     ui->stackedWidget->insertWidget(2, mapWindow);
+    ui->stackedWidget->insertWidget(3, infoDriversWindow);
+    ui->stackedWidget->insertWidget(4, financialWindow);
 
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -43,4 +50,14 @@ void MainWindow::on_actionMapTown_triggered()
 {
     ui->stackedWidget->setCurrentIndex(2);
     mapWindow->updateWaysView();
+}
+void MainWindow::on_actionactionInfoDrivers_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_actionFinance_triggered()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+    financialWindow->updateListSalary();
 }

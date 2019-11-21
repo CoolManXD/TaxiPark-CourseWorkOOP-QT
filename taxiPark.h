@@ -26,6 +26,10 @@ public:
 
     DriverDependent& getDependent(const int);
     DriverIndependent& getIndependent(const int);
+
+    QVector<DriverDependent>& getDependentDrivers();
+    QVector<DriverIndependent>& getIndependentDrivers();
+
     float getCompanyMoney();
 
     void saveFinancialInfo(); //сохранить финансовую информацию в файлы

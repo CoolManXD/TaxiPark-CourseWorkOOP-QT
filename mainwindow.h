@@ -14,6 +14,8 @@
 class BusyListWindow;
 class OrderWindow;
 class MapWindow;
+class InfoDriversWindow;
+class FinancialWindow;
 
 namespace Ui {
 class MainWindow;
@@ -30,8 +32,10 @@ public:
 private slots:
     void on_actionOrder_triggered(); // открыть виджет с окном формы для принятия заказа от клиента
     void on_actionBusyList_triggered(); // открыть виджет с списком зайнятости водителей
-
     void on_actionMapTown_triggered();
+    void on_actionactionInfoDrivers_triggered();
+
+    void on_actionFinance_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -41,6 +45,8 @@ private:
     BusyListWindow *busyListWindow;
     OrderWindow *orderWindow;
     MapWindow *mapWindow;
+    InfoDriversWindow *infoDriversWindow;
+    FinancialWindow *financialWindow;
 };
 
 #endif // MAINWINDOW_H

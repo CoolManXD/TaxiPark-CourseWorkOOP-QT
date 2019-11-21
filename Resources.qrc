@@ -1,18 +1,11 @@
 <RCC>
     <qresource prefix="/data">
-        <file>dataBase/carsDependent.txt</file>
-        <file>dataBase/carsIndependent.txt</file>
-        <file>dataBase/driversDependent.txt</file>
-        <file>dataBase/driversIndependent.txt</file>
-        <file>dataBase/listOfStreets.txt</file>
-        <file>dataBase/map.txt</file>
         <file>dataBase/iconTaxiPark.png</file>
         <file>dataBase/iconTimer.png</file>
         <file>dataBase/iconOrder.png</file>
-        <file>dataBase/companyInfo.txt</file>
-        <file>dataBase/salaryDependent.txt</file>
-        <file>dataBase/salaryIndependent.txt</file>
         <file>dataBase/graph.png</file>
         <file>dataBase/iconMap.png</file>
+        <file>dataBase/iconInfo.png</file>
+        <file>dataBase/iconFinancial.png</file>
     </qresource>
 </RCC>

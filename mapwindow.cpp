@@ -7,6 +7,8 @@ MapWindow::MapWindow(TaxiPark *park, QWidget *parent) :
     ui(new Ui::MapWindow)
 {
     ui->setupUi(this);
+    setAttribute(Qt::WA_DeleteOnClose, true);
+
     m_model = new QStringListModel(this);
     updateWaysView();
 }

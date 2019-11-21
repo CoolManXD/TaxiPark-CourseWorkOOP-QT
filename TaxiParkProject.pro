@@ -23,6 +23,8 @@ SOURCES += \
     driverDependent.cpp \
     driverIndependent.cpp \
     driverMap.cpp \
+    financialwindow.cpp \
+    infodriverswindow.cpp \
     main.cpp \
     mainwindow.cpp \
     map.cpp \
@@ -39,6 +41,8 @@ HEADERS += \
     driverDependent.h \
     driverIndependent.h \
     driverMap.h \
+    financialwindow.h \
+    infodriverswindow.h \
     mainwindow.h \
     map.h \
     mapwindow.h \
@@ -48,6 +52,8 @@ HEADERS += \
 
 FORMS += \
     busylistwindow.ui \
+    financialwindow.ui \
+    infodriverswindow.ui \
     mainwindow.ui \
     mapwindow.ui \
     orderwindow.ui
