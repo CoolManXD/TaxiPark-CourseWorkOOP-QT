@@ -15,10 +15,7 @@ public:
 	static float getPercentageOfOrder();
     virtual void calculatePrice(float, float&, float&) override final;
 	virtual ~DriverDependent() {}
-	friend std::istream& operator>> (std::istream& in, DriverDependent&);
 };
-
-std::ostream& operator<< (std::ostream&, DriverDependent&);
 
 float operator+(float money, DriverDependent& driver);
 float operator+(DriverDependent& driver, float money);

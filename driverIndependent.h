@@ -29,10 +29,8 @@ public:
 	static float getPercentageOfFuel();
     virtual void calculatePrice(float, float&, float&) override final;
     virtual ~DriverIndependent() override {}
-	friend std::istream& operator>> (std::istream& in, DriverIndependent&);
 };
 
-std::ostream& operator<< (std::ostream&, DriverIndependent&);
 float operator+(float money, DriverIndependent& driver);
 float operator+(DriverIndependent& driver, float money);
 float operator+=(float money, DriverIndependent& driver);

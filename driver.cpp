@@ -2,7 +2,6 @@
 #include "car.h"
 #include "driverMap.h"
 #include "map.h"
-#include <iostream>
 
 //-------------------Функции доступа-------------------- 
 const QString& Driver::getName()
@@ -143,7 +142,6 @@ float Driver::findWay(const QString& from, const QString& destination, QString &
             if (street.value() == (*index))
             {
                 way += street.key() + " -> ";
-                //std::cout << street->first << " -> ";
                 break;
             }
         }
@@ -151,7 +149,6 @@ float Driver::findWay(const QString& from, const QString& destination, QString &
     way[way.size()-4] = ' ';
     way[way.size()-3] = ' ';
     way[way.size()-2] = ' ';
-    /*std::cout << std::endl;*/
 
     return d[m_driverMap->m_map.listOfStreets[destination]];
 }
@@ -162,21 +159,4 @@ void Driver::setTimeAttributes(float time)
 {
 	m_busyTime = time;
 	m_startTime = std::chrono::steady_clock::now();
-}
-
-//-------------------Перегрузка операторов-------------------- 
-std::ostream& operator<< (std::ostream& out, Driver& driver)
-{
-    //out << "Name: " << driver.getName() << "\nYear experience: " << driver.getYearExp() << "\n" << driver.getCar();
-	return out;
-}
-
-std::istream& operator>> (std::istream& in, Driver& driver)
-{
-	std::cout << "Name: ";
-    //in >> driver.m_name;
-	std::cout << "Year experience: ";
-    //in >> driver.m_yearExp;
-    //in >> driver.getCar();
-	return in;
 }

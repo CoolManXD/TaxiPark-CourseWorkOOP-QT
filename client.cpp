@@ -1,6 +1,5 @@
 #include "client.h"
 #include "map.h"
-#include <iostream>
 
 //-------------------Конструктор оформления клиента-------------------- 
 Client::Client(const Map& map, QString name, QString location, QString destination)

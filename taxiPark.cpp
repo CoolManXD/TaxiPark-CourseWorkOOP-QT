@@ -3,8 +3,6 @@
 #include "client.h"
 #include <QMessageBox>
 
-#include <iostream>
-
 //-------------------Загрузка данных с файла и проверка-------------------- 
 
 void TaxiPark::loadData() {
@@ -251,7 +249,6 @@ TaxiService* TaxiPark::findNearestDriver(float& duration, bool isVip)
 
 	if (driver == NULL)
 	{
-//		std::cout << "Sorry. No free cars :(\n";
 		delete m_client;
 		m_client = NULL;
 		return NULL;
@@ -336,39 +333,4 @@ void TaxiPark::saveFinancialInfo()
     for (auto *it = driversIndependent.begin(); it != driversIndependent.end(); ++it)
         out << it->getSalary() << "\n";
     fp.close();
-}
-
-//-------------------Добавление в базу новых водителей-------------------- 
-void TaxiPark::addDependentDriver()
-{
-	std::cout << "\nFill profile (dependent driver) \n\n";
-	DriverDependent driver;
-	std::cin >> driver;
-	driversDependent.push_back(driver);
-}
-
-void TaxiPark::addIndependentDriver()
-{
-	std::cout << "Fill profile (independent driver) \n\n";
-	DriverIndependent driver;
-	std::cin >> driver;
-	driversIndependent.push_back(driver);
-}
-
-//-------------------Перегрузки операторов-------------------- 
-std::ostream& operator<< (std::ostream& out, TaxiPark& park)
-{
-	int i = 1;
-	out << "Dependent drivers\n";
-	for (auto it = park.driversDependent.begin(); it != park.driversDependent.end(); ++it)
-	{
-		out << "\n" << i++ << ")\n" << *it;
-	}
-	i = 1;
-	out << "\nIndependent drivers\n";
-	for (auto it = park.driversIndependent.begin(); it != park.driversIndependent.end(); ++it)
-	{
-		out << "\n" << i++ << ")\n" << *it;
-	}
-	return out;
 }

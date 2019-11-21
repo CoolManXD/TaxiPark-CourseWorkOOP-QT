@@ -25,7 +25,6 @@ void DriverMap::updateDataTrafficJams() {
         for(auto it2 = (*it).begin(), itt2 = (*itt).begin(); it2 != (*it).end(); ++it2, ++itt2)
         {
             it2->second = (float(rand() % 4 + 1) / 2) * itt2->second;
-            /*m_trafficJams[i][j].second = m_map.mapOfTown[i][j].second;*/
         }
     }
 

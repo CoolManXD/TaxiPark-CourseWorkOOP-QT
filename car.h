@@ -24,7 +24,4 @@ public:
     const QString& getRegPlate();
 	bool isVip();
 	~Car() {}
-	friend std::istream& operator>> (std::istream&, Car&);
 };
-
-std::ostream& operator<< (std::ostream&, Car&);

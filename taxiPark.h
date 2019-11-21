@@ -35,15 +35,9 @@ public:
     void saveFinancialInfo(); //сохранить финансовую информацию в файлы
     void paySalaries(); //выплата з/п
 
-    void addDependentDriver();
-	void addIndependentDriver();
-
     void setDriverMap(DriverMap*); //передать водителям карту (static)
 
-	friend std::ostream& operator<< (std::ostream&, TaxiPark&);
 	~TaxiPark() {}
-
-    friend class BusyListWindow;
 };
 
 

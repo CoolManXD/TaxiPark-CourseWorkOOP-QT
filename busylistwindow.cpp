@@ -27,7 +27,7 @@ void BusyListWindow::updateBusyList()
 
     std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
-    for (auto it = m_park->driversDependent.begin(); it != m_park->driversDependent.end(); ++it) // перебор зависимых водителей
+    for (auto it = m_park->getDependentDrivers().begin(); it != m_park->getDependentDrivers().end(); ++it) // перебор зависимых водителей
     {
         if (it->isBusy()) // если занят
         {
@@ -53,7 +53,7 @@ void BusyListWindow::updateBusyList()
         }
     }
 
-    for (auto it = m_park->driversIndependent.begin(); it != m_park->driversIndependent.end(); ++it) // перебор независимых водителей
+    for (auto it = m_park->getIndependentDrivers().begin(); it != m_park->getIndependentDrivers().end(); ++it) // перебор независимых водителей
     {
         if (it->isBusy()) // если занят
         {

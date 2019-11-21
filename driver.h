@@ -48,8 +48,4 @@ public:
 
     virtual void calculatePrice(float, float &, float &) override {}
     virtual ~Driver() override {}
-
-	friend std::istream& operator>> (std::istream&, Driver&);
 };
-
-std::ostream& operator<< (std::ostream&, Driver&);

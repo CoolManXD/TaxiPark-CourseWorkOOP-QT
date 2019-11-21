@@ -1,6 +1,5 @@
 #include "driverDependent.h"
 #include "car.h"
-#include <iostream>
 
 //-------------------Функции доступа-------------------- 
 void DriverDependent::setSalary(float salary)
@@ -23,28 +22,11 @@ float DriverDependent::getPercentageOfOrder()
 //--------------------Подсчет стоимости---------------------
 void DriverDependent::calculatePrice(float distance,float &price, float &salary)
 {
-//	std::cout << "Taxi park earns " << distance << "$" << std::endl;
     price = distance;
     salary = price * m_percentageOfOrder;
-//	std::cout << "Driver will get " << salary << "$" << std::endl;
 	m_salary += salary;
 }
 //-------------------Перегрузка операторов-------------------- 
-std::ostream& operator<< (std::ostream& out, DriverDependent& driver)
-{
-    //out << "Name: " << driver.getName() << "\nYear experience: " << driver.getYearExp() << "\n" << driver.getCar();
-    //out << "Salary: " << driver.getSalary() << "\n";
-	return out;
-}
-
-std::istream& operator>> (std::istream& in, DriverDependent& driver)
-{
-    //in >> dynamic_cast<Driver&>(driver);
-	std::cout << "Salary: ";
-    //in >> driver.m_salary;
-	return in;
-}
-
 float operator+(float money, DriverDependent& driver)
 {
 	return money + driver.getSalary();
