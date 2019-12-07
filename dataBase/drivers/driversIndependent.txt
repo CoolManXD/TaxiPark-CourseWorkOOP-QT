@@ -1,0 +1,8 @@
+Vova_Dolid 10 + + +
+Nikita_Ktoto 3 - - -
+Kiril_Rudin 8 + - +
+Nazar_Ninuk 3 - - +
+Oleg_Nikolaenko 15 + + -
+Olexandr_Gavriluk 4 + + +
+Oleg_Bisyev 5 - + -
+Alexey_Burtovyi + + -

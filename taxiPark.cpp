@@ -8,9 +8,9 @@
 void TaxiPark::loadData() {
     QDir dir(QDir::currentPath()); //абсолютный путь к исполняемому файлу
 
-    QFile fsCar(dir.absoluteFilePath("dataBase/carsDependent.txt")); //автомобили зависимых водителей
-    QFile fsDriver(dir.absoluteFilePath("dataBase/driversDependent.txt")); //инфо о зависимых водителях
-    QFile fsSalary(dir.absoluteFilePath("dataBase/salaryDependent.txt")); //инфо о зависимых водителях
+    QFile fsCar(dir.absoluteFilePath("dataBase/cars/carsDependent.txt")); //автомобили зависимых водителей
+    QFile fsDriver(dir.absoluteFilePath("dataBase/drivers/driversDependent.txt")); //инфо о зависимых водителях
+    QFile fsSalary(dir.absoluteFilePath("dataBase/finance/salaryDependent.txt")); //инфо о зависимых водителях
 
     if (!fsCar.open(QFile::ReadOnly | QFile::Text) || !fsDriver.open(QFile::ReadOnly | QFile::Text) || !fsSalary.open(QFile::ReadOnly | QFile::Text))
     {
@@ -47,9 +47,9 @@ void TaxiPark::loadData() {
 	fsDriver.close();
     fsSalary.close();
 
-    fsCar.setFileName(dir.absoluteFilePath("dataBase/carsIndependent.txt"));//автомобили независимых водителей
-    fsDriver.setFileName(dir.absoluteFilePath("dataBase/driversIndependent.txt")); //инфо о независимых водителях
-    fsSalary.setFileName(dir.absoluteFilePath("dataBase/salaryIndependent.txt"));
+    fsCar.setFileName(dir.absoluteFilePath("dataBase/cars/carsIndependent.txt"));//автомобили независимых водителей
+    fsDriver.setFileName(dir.absoluteFilePath("dataBase/drivers/driversIndependent.txt")); //инфо о независимых водителях
+    fsSalary.setFileName(dir.absoluteFilePath("dataBase/finance/salaryIndependent.txt"));
 
     if (!fsCar.open(QFile::ReadOnly | QFile::Text) || !fsDriver.open(QFile::ReadOnly | QFile::Text) || !fsSalary.open(QFile::ReadOnly | QFile::Text))
     {
@@ -94,7 +94,7 @@ void TaxiPark::loadData() {
     fsDriver.close();
     fsSalary.close();
 
-    fsSalary.setFileName(dir.absoluteFilePath("dataBase/companyInfo.txt"));
+    fsSalary.setFileName(dir.absoluteFilePath("dataBase/finance/companyInfo.txt"));
     if (!fsSalary.open(QFile::ReadOnly | QFile::Text))
     {
         return;
@@ -303,7 +303,7 @@ void TaxiPark::saveFinancialInfo()
 {
     QDir dir(QDir::currentPath());
 
-    QFile fp(dir.absoluteFilePath("dataBase/companyInfo.txt"));
+    QFile fp(dir.absoluteFilePath("dataBase/finance/companyInfo.txt"));
     if (!fp.open(QFile::WriteOnly | QFile::Text))
     {
         return;
@@ -312,7 +312,7 @@ void TaxiPark::saveFinancialInfo()
     out << m_earnMoney;
     fp.close();
 
-    fp.setFileName(dir.absoluteFilePath("dataBase/salaryDependent.txt"));
+    fp.setFileName(dir.absoluteFilePath("dataBase/finance/salaryDependent.txt"));
     if (!fp.open(QFile::WriteOnly | QFile::Text))
     {
         return;
@@ -323,7 +323,7 @@ void TaxiPark::saveFinancialInfo()
         out << it->getSalary() << "\n";
     fp.close();
 
-    fp.setFileName(dir.absoluteFilePath("dataBase/salaryIndependent.txt"));
+    fp.setFileName(dir.absoluteFilePath("dataBase/finance/salaryIndependent.txt"));
     if (!fp.open(QFile::WriteOnly | QFile::Text))
     {
         return;

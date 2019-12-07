@@ -62,12 +62,12 @@ DriverMap* Driver::getDriverMap()
 //---------------Алгоритм Дейкстры по поиску кратких путей-------------
 float Driver::findWay(const QString& from, const QString& destination)
 {
-	int n = m_driverMap->m_map.quantityStreet;
+    int n = m_driverMap->m_map.quantityStreet; // кількість вершин
 	const int INF{ 1000000000 };
-	int s = m_driverMap->m_map.listOfStreets[from];
-    QVector<float> d(n, INF);
+    int s = m_driverMap->m_map.listOfStreets[from]; // початкова вершина
+    QVector<float> d(n, INF); // вектор відстаней від початкової до інших вершин
 	d[s] = 0;
-    QVector<bool> u(n);
+    QVector<bool> u(n); // вектор відвідувань
 
     for (int i = 0; i < n; ++i)
     {
