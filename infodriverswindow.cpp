@@ -46,11 +46,12 @@ void InfoDriversWindow::on_listDependentDrivers_clicked(const QModelIndex &index
     {
             if (driverName == it->getName())
             {
-                ui->labelName_Dependent->setText(it->getName());
-                ui->labelYearExp_Dependent->setNum(it->getYearExp());
-                ui->labelModel_Dependent->setText(it->getCar().getModel());
-                ui->labelRegPlate_Dependent->setText(it->getCar().getRegPlate());
-                ui->labelVip_Dependent->setText(it->getCar().isVip() ? "+" : "-");
+                ui->labelName_Dependent->setText("Full name: " + it->getName());
+                ui->labelYearExp_Dependent->setText("Year experience: " + QString::number(it->getYearExp()));
+                ui->labelModel_Dependent->setText("Model of the car: " + it->getCar().getModel());
+                ui->labelRegPlate_Dependent->setText("Registration plate of the car: " + it->getCar().getRegPlate());
+                QString symbol = it->getCar().isVip() ? "+" : "-";
+                ui->labelVip_Dependent->setText("Vip car: " + symbol);
                 break;
             }
     }
@@ -63,14 +64,18 @@ void InfoDriversWindow::on_listIndependentDrivers_clicked(const QModelIndex &ind
     {
             if (driverName == it->getName())
             {
-                ui->labelName_Independent->setText(it->getName());
-                ui->labelYearExp_Independent->setNum(it->getYearExp());
-                ui->labelModel_Independent->setText(it->getCar().getModel());
-                ui->labelRegPlate_Independent->setText(it->getCar().getRegPlate());
-                ui->labelVip_Independent->setText(it->getCar().isVip() ? "+" : "-");
-                ui->labelInsurance_Independent->setText(it->isInsured() ? "+" : "-");
-                ui->labelRepairServ_Independent->setText(it->isRepairServ() ? "+" : "-");
-                ui->labelFuel_Independent->setText(it->isFuel() ? "+" : "-");
+                ui->labelName_Independent->setText("Full name: " + it->getName());
+                ui->labelYearExp_Independent->setText("Year experience: " + QString::number(it->getYearExp()));
+                ui->labelModel_Independent->setText("Model of the car: " + it->getCar().getModel());
+                ui->labelRegPlate_Independent->setText("Registration plate of the car: " + it->getCar().getRegPlate());
+                QString symbol = it->getCar().isVip() ? "+" : "-";
+                ui->labelVip_Independent->setText("Vip car: " + symbol);
+                symbol = it->getCar().isVip() ? "+" : "-";
+                ui->labelInsurance_Independent->setText("Insurance from the company: " + symbol);
+                symbol = it->isInsured() ? "+" : "-";
+                ui->labelRepairServ_Independent->setText("Fuel from the company: " + symbol);
+                symbol = it->isFuel() ? "+" : "-";
+                ui->labelFuel_Independent->setText("Repair services from the company: " + symbol);
                 break;
             }
     }

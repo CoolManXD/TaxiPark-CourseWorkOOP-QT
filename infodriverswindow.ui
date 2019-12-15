@@ -77,13 +77,6 @@ QLabel {
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLabel" name="labelNameD_2">
-         <property name="text">
-          <string>Full name:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="labelName_Dependent">
          <property name="palette">
           <palette>
@@ -551,13 +544,6 @@ QLabel {
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Year experience:</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QLabel" name="labelYearExp_Dependent">
          <property name="palette">
@@ -1027,13 +1013,6 @@ QLabel {
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Model of the car:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="labelModel_Dependent">
          <property name="palette">
           <palette>
@@ -1502,13 +1481,6 @@ QLabel {
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>Registration plate of the car:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="labelRegPlate_Dependent">
          <property name="palette">
           <palette>
@@ -1976,13 +1948,6 @@ QLabel {
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>Vip car:</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QLabel" name="labelVip_Dependent">
          <property name="palette">
@@ -2475,13 +2440,6 @@ QLabel {
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_9">
        <item>
-        <widget class="QLabel" name="label_15">
-         <property name="text">
-          <string>Full name:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="labelName_Independent">
          <property name="palette">
           <palette>
@@ -2949,13 +2907,6 @@ QLabel {
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_10">
-       <item>
-        <widget class="QLabel" name="label_17">
-         <property name="text">
-          <string>Year experience:</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QLabel" name="labelYearExp_Independent">
          <property name="palette">
@@ -3425,13 +3376,6 @@ QLabel {
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_11">
        <item>
-        <widget class="QLabel" name="label_19">
-         <property name="text">
-          <string>Model of the car:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="labelModel_Independent">
          <property name="palette">
           <palette>
@@ -3899,13 +3843,6 @@ QLabel {
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_12">
-       <item>
-        <widget class="QLabel" name="label_21">
-         <property name="text">
-          <string>Registration plate of the car:</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QLabel" name="labelRegPlate_Independent">
          <property name="palette">
@@ -4375,13 +4312,6 @@ QLabel {
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_13">
        <item>
-        <widget class="QLabel" name="label_23">
-         <property name="text">
-          <string>Vip car:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="labelVip_Independent">
          <property name="palette">
           <palette>
@@ -4849,13 +4779,6 @@ QLabel {
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_14">
-       <item>
-        <widget class="QLabel" name="label_25">
-         <property name="text">
-          <string>Insurance from the company:</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QLabel" name="labelInsurance_Independent">
          <property name="palette">
@@ -5325,13 +5248,6 @@ QLabel {
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Fuel from the company:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="labelFuel_Independent">
          <property name="palette">
           <palette>
@@ -5799,13 +5715,6 @@ QLabel {
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_15">
-       <item>
-        <widget class="QLabel" name="label_27">
-         <property name="text">
-          <string>Repair services from the company:</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QLabel" name="labelRepairServ_Independent">
          <property name="palette">
